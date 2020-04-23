@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+body{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.container{
+    height:auto;
+    width:340px;
+    margin:3% 2%;
+    background: silver;
+    border-radius: 25px;
+    padding:30px 30px;
+    box-sizing: border-box;
+    box-shadow:1px 1px 2px 2px grey ;
+}
+#inputs{
+    margin-bottom:30px;
+    padding:0 10px;
+    height:55px;
+    width:260px;
+    background: slategrey;
+    color:white;
+    border-radius: 10px;
+    font-size: 30px;
+}
+#screen:focus{
+    outline:none;
+}
+.press{
+    width:280px;
+}
+.press input{
+    background: slategrey;
+color:white;
+width:50px;
+ height:50px;
+ margin:5px 8.5px;
+ border-radius: 5px;
+ outline:none;
+ text-align: center;
+ font-size: 18px;
+}
+::placeholder{
+    color:black;
+}
+#clear{
+    background:red;
+}
+#equal{
+    width:120px;
+    background:navy;
+}
+#minus, #plus, #divide, #multiply{
+    background:navy;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+    <input id="inputs"  type="text" value="0">
+    <div class="press">
+        <input type="button" onclick="removeValue()" id="clear"  value="">
+        <input type="button" onclick="addValue(event)" id="backspace" value="-">
+        <input type="button"  onclick="addValue(event)" id="sign" value="A">
+        <input type="button" onclick="addValue(event)" id="divide" value="/" >
+        <input type="button" onclick="addValue(event)" class="num" value="7">
+        <input type="button" onclick="addValue(event)" class="num" value="8">
+        <input type="button" onclick="addValue(event)" class="num" value="9">
+        <input type="button" onclick="addValue(event)" id="multiply" value="*">
+        <input type="button" onclick="addValue(event)" id="num" value="4">
+        <input type="button" onclick="addValue(event)" id="num" value="5">
+        <input type="button" onclick="addValue(event)" id="num" value="6">
+        <input type="button" onclick="addValue(event)" id="minus" value="-">
+        <input type="button" onclick="addValue(event)" id="num" value="1">
+        <input type="button" onclick="addValue(event)" id="num" value="2">
+        <input type="button" onclick="addValue(event)" id="num" value="3">
+        <input type="button" onclick="addValue(event)" id="plus" value="+">
+        <input type="button" onclick="addValue(event)" id="num" value="0">
+        <input type="button" onclick="addValue(event)" id="num" value=".">
+        <input type="button" onclick="answer(event)" id="equal" value="=">
+    </div>
+</div>
+
+
+<script>
+var input=document.getElementsByTagName('input')[0]
+var seven=document.getElementsByTagName('input')[5];
+function addValue(e){
+const value=input.value;
+input.value= value+e.target.value;
+}
+function answer(e){
+    var value=input.value;
+    var newValue=eval(value)
+    input.value=newValue;
+}
+function removeValue(){
+    input.value=""
+}
+
+</script>
+</body>
+</html>
